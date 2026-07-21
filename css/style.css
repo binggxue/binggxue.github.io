@@ -111,31 +111,11 @@ select:focus-visible,
 }
 
 .brand-mark {
-  display: grid;
-  grid-template-columns: repeat(2, 9px);
-  grid-template-rows: repeat(2, 9px);
-  gap: 3px;
-  padding: 4px;
-  border: 1px solid var(--ink);
-  border-radius: 3px;
-  transform: rotate(-8deg);
-}
-
-.brand-mark span {
   display: block;
-  background: var(--accent);
-}
-
-.brand-mark span:nth-child(2) {
-  background: var(--teal);
-}
-
-.brand-mark span:nth-child(3) {
-  background: var(--gold);
-}
-
-.brand-mark span:nth-child(4) {
-  background: var(--ink);
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 3px;
 }
 
 .brand-copy {
@@ -1315,20 +1295,24 @@ button:disabled {
   }
 
   .semester-metrics {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
     width: 100%;
     min-width: 0;
     padding: 0 14px 18px;
+    column-gap: 8px;
   }
 
   .metric-item {
     min-width: 0;
-    padding: 0 9px;
+    padding: 0 12px;
   }
 
   .metric-label {
     font-size: 10px;
-    white-space: nowrap;
+    line-height: 1.25;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
   }
 
   .metric-item strong {
