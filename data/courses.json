@@ -1,0 +1,137 @@
+{
+  "semester": {
+    "name": "2026 Fall",
+    "startDate": "2026-09-14",
+    "totalWeeks": 16
+  },
+  "periods": [
+    {
+      "id": 1,
+      "label": "第1节",
+      "startTime": "08:00",
+      "endTime": "08:45"
+    },
+    {
+      "id": 2,
+      "label": "第2节",
+      "startTime": "08:50",
+      "endTime": "09:35"
+    },
+    {
+      "id": 3,
+      "label": "第3节",
+      "startTime": "10:00",
+      "endTime": "10:45"
+    },
+    {
+      "id": 4,
+      "label": "第4节",
+      "startTime": "10:50",
+      "endTime": "11:35"
+    },
+    {
+      "id": 5,
+      "label": "第5节",
+      "startTime": "13:30",
+      "endTime": "14:15"
+    },
+    {
+      "id": 6,
+      "label": "第6节",
+      "startTime": "14:20",
+      "endTime": "15:05"
+    },
+    {
+      "id": 7,
+      "label": "第7节",
+      "startTime": "15:30",
+      "endTime": "16:15"
+    },
+    {
+      "id": 8,
+      "label": "第8节",
+      "startTime": "16:20",
+      "endTime": "17:05"
+    },
+    {
+      "id": 9,
+      "label": "第9节",
+      "startTime": "18:30",
+      "endTime": "19:15"
+    },
+    {
+      "id": 10,
+      "label": "第10节",
+      "startTime": "19:20",
+      "endTime": "20:05"
+    },
+    {
+      "id": 11,
+      "label": "第11节",
+      "startTime": "20:10",
+      "endTime": "20:55"
+    }
+  ],
+  "courses": [
+    {
+      "id": "03044501",
+      "courseName": "道路工程全过程课程设计",
+      "dayOfWeek": 2,
+      "startPeriod": 1,
+      "endPeriod": 3,
+      "weeks": "1-16",
+      "teacher": "孙斌，王俊骅等",
+      "credits": 7.0,
+      "room": "南409",
+      "note": ""
+    },
+    {
+      "id": "03044501",
+      "courseName": "道路工程全过程课程设计",
+      "dayOfWeek": 4,
+      "startPeriod": 1,
+      "endPeriod": 4,
+      "weeks": "1-16",
+      "teacher": "孙斌，王俊骅等",
+      "credits": 7.0,
+      "room": "南409",
+      "note": ""
+    },
+    {
+      "id": "03052108",
+      "courseName": "工程结构全寿命维护 I",
+      "dayOfWeek": 3,
+      "startPeriod": 1,
+      "endPeriod": 2,
+      "weeks": "1-16",
+      "teacher": "淡丹辉",
+      "credits": 1.5,
+      "room": "南315",
+      "note": ""
+    },
+    {
+      "id": "15044501",
+      "courseName": "铺面工程",
+      "dayOfWeek": 3,
+      "startPeriod": 5,
+      "endPeriod": 6,
+      "weeks": "1-16",
+      "teacher": "刘黎萍等",
+      "credits": 1.5,
+      "room": "南212",
+      "note": "用于验证课程卡片点击详情。"
+    },
+    {
+      "id": "5000182012901",
+      "courseName": "桥梁工程B",
+      "dayOfWeek": 3,
+      "startPeriod": 3,
+      "endPeriod": 4,
+      "weeks": "1-16",
+      "teacher": "孙利民",
+      "credits": 1.5,
+      "room": "北212",
+      "note": "用于验证课程卡片点击详情。"
+    }
+  ]
+}

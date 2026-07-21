@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="根据 JSON 数据展示大学学期课程安排的响应式课程表。"
+    />
+    <title>大学课程表</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/theme.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html" aria-label="返回个人主页">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </span>
+          <span class="brand-copy">
+            <span class="brand-kicker">ACADEMIC PLANNER</span>
+            <strong>大学课程表</strong>
+          </span>
+        </a>
+
+        <nav class="header-actions" aria-label="页面操作">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            data-mode="system"
+            title="跟随系统"
+            aria-label="切换浅色/暗黑模式（当前为跟随系统）"
+          ></button>
+          <a class="header-link header-link-home" href="index.html">个人主页</a>
+        </nav>
+      </header>
+
+      <main class="main-content">
+        <section class="semester-banner" aria-labelledby="semesterName">
+          <div class="banner-copy">
+            <p class="section-kicker">CURRENT SEMESTER</p>
+            <h1 id="semesterName">正在读取学期信息</h1>
+            <p class="banner-date" id="semesterDateRange">--</p>
+          </div>
+
+          <div class="semester-metrics" aria-label="学期信息">
+            <div class="metric-item">
+              <span class="metric-label">学期第一天</span>
+              <strong id="semesterStart">--</strong>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">学期总周数</span>
+              <strong><span id="totalWeeks">--</span><small> 周</small></strong>
+            </div>
+            <div class="metric-item metric-item-accent">
+              <span class="metric-label">当前周</span>
+              <strong>第 <span id="currentWeekMetric">--</span> 周</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="control-bar" aria-label="课程表控制项">
+          <div class="week-navigation">
+            <button
+              class="icon-button control-button"
+              id="previousWeekButton"
+              type="button"
+              title="上一周"
+              aria-label="上一周"
+            >
+              <span aria-hidden="true">&#x2039;</span>
+            </button>
+            <label class="week-select-wrap">
+              <span class="sr-only">选择周数</span>
+              <select id="weekSelect" aria-label="选择周数"></select>
+              <span class="select-chevron" aria-hidden="true">&#x2304;</span>
+            </label>
+            <button
+              class="icon-button control-button"
+              id="nextWeekButton"
+              type="button"
+              title="下一周"
+              aria-label="下一周"
+            >
+              <span aria-hidden="true">&#x203A;</span>
+            </button>
+            <button class="text-button" id="currentWeekButton" type="button">
+              <span class="button-dot" aria-hidden="true"></span>
+              回到本周
+            </button>
+          </div>
+
+          <div class="load-status" role="status" aria-live="polite">
+            <span class="status-indicator" id="statusIndicator" aria-hidden="true"></span>
+            <span id="loadStatus">正在读取课程数据</span>
+          </div>
+        </section>
+
+        <section class="today-panel" aria-labelledby="todayTitle">
+          <header class="today-heading">
+            <div class="today-title-wrap">
+              <span class="today-mark" aria-hidden="true">今</span>
+              <div>
+                <p class="section-kicker">TODAY'S COURSES</p>
+                <h2 id="todayTitle">今日课程</h2>
+              </div>
+            </div>
+            <div class="today-heading-actions">
+              <div class="today-meta">
+                <strong id="todayDate">--</strong>
+                <span id="todayCourseCount">正在读取今日安排</span>
+              </div>
+            </div>
+          </header>
+          <div class="today-course-list" id="todayCourseList"></div>
+        </section>
+
+        <section class="schedule-panel" id="schedule" aria-labelledby="scheduleTitle">
+          <header class="panel-heading">
+            <div>
+              <p class="section-kicker">WEEKLY SCHEDULE</p>
+              <h2 id="scheduleTitle">第 <span id="selectedWeekLabel">--</span> 周课程</h2>
+            </div>
+            <div class="panel-date" id="selectedWeekRange">--</div>
+          </header>
+
+          <div class="schedule-scroll" id="scheduleScroll" tabindex="0">
+            <div
+              class="schedule-grid"
+              id="scheduleGrid"
+              role="grid"
+              aria-label="大学课程表"
+            ></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>课程数据来源：courses.json</span>
+        <span id="lastUpdated">最近一次更新：--</span>
+      </footer>
+    </div>
+
+    <dialog class="course-dialog" id="courseDialog" aria-labelledby="dialogTitle">
+      <div class="dialog-heading">
+        <div>
+          <p class="section-kicker" id="dialogKicker">COURSE DETAIL</p>
+          <h2 id="dialogTitle">课程详情</h2>
+        </div>
+        <button
+          class="icon-button dialog-close"
+          id="closeDialogButton"
+          type="button"
+          title="关闭详情"
+          aria-label="关闭课程详情"
+        >
+          <span aria-hidden="true">&#x00d7;</span>
+        </button>
+      </div>
+      <div id="dialogContent"></div>
+    </dialog>
+  </body>
+</html>

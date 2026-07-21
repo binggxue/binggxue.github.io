@@ -1,0 +1,22 @@
+{
+  "notes": [
+    {
+      "id": "analysis",
+      "title": "分析学",
+      "type": "PDF",
+      "category": "学习资料",
+      "date": "2026-07-20",
+      "summary": "",
+      "url": "example.pdf"
+    },
+    {
+      "id": "algebra",
+      "title": "代数学",
+      "type": "PDF",
+      "category": "学习资料",
+      "date": "2026-07-20",
+      "summary": "",
+      "url": "example.pdf"
+    }
+  ]
+}

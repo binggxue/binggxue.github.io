@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="个人学习主页，展示今日课程、学习笔记和课程表入口。"
+    />
+    <title>薛冰的个人主页</title>
+    <link rel="icon" type="image/svg+xml" href="infty.png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <script src="js/theme.js" defer></script>
+    <script src="js/home.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell" id="top">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="返回个人主页">
+          
+          <span class="brand-copy">
+            <span class="brand-kicker">Bingxue's Homepage</span>
+            <strong>薛冰的个人主页</strong>
+          </span>
+        </a>
+
+        <nav class="header-actions" aria-label="页面导航">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            data-mode="system"
+            title="跟随系统"
+            aria-label="切换浅色/暗黑模式（当前为跟随系统）"
+          ></button>
+          <a class="header-link" href="#today">今日课表</a>
+          <a class="header-link" href="#notes">学习笔记</a>
+          <a class="header-link header-link-accent" href="courses.html">完整课程表</a>
+        </nav>
+      </header>
+
+      <main class="home-content">
+        <section class="profile-hero" aria-labelledby="profileName">
+          <div class="profile-hero-copy">
+            <p class="section-kicker">WELCOME TO MY HOMEPAGE</p>
+            <h1 id="profileName">Bing</h1>
+            <p class="profile-intro" id="profileIntro">
+              这里记录课程安排、学习笔记，以及每天正在积累的知识。
+            </p>
+            <div class="profile-actions">
+              <a class="home-primary-link" href="#today">
+                <span>查看今日课表</span>
+                <span aria-hidden="true">&#x2192;</span>
+              </a>
+              <a class="home-secondary-link" href="#notes">浏览学习笔记</a>
+            </div>
+          </div>
+
+          <div class="profile-media">
+            <img
+              class="profile-photo"
+              src="inftyprofile.png"
+              alt="个人头像"
+            />
+            <span class="profile-photo-label"></span>
+          </div>
+
+          <div class="profile-rail" aria-label="学习主页概览">
+            <div class="profile-stat">
+              <span>今日课程</span>
+              <strong id="homeTodayCount">--</strong>
+            </div>
+            <div class="profile-stat">
+              <span>当前周次</span>
+              <strong id="homeWeekLabel">--</strong>
+            </div>
+            <div class="profile-stat">
+              <span>学习笔记</span>
+              <strong><span id="noteCount">--</span><small> 篇</small></strong>
+            </div>
+          </div>
+        </section>
+
+        <div class="home-layout">
+          <section
+            class="today-panel home-today-panel"
+            id="today"
+            aria-labelledby="todayTitle"
+          >
+            <header class="today-heading">
+              <div class="today-title-wrap">
+                <span class="today-mark" aria-hidden="true">今</span>
+                <div>
+                  <p class="section-kicker">TODAY'S COURSES</p>
+                  <h2 id="todayTitle">今日课表</h2>
+                </div>
+              </div>
+              <div class="today-heading-actions">
+                
+                <div class="today-meta">
+                  <strong id="todayDate">正在读取日期</strong>
+                  <span id="todayCourseCount">正在读取今日安排</span>
+                </div>
+              </div>
+            </header>
+            <div class="today-course-list" id="todayCourseList"></div>
+            <footer class="home-panel-footer">
+              <a class="section-inline-link" href="courses.html">
+                <span>查看完整课程表</span>
+                <span aria-hidden="true">&#x2197;</span>
+              </a>
+            </footer>
+          </section>
+
+          <section class="home-section notes-section" id="notes" aria-labelledby="notesTitle">
+            <header class="home-section-heading">
+              <div>
+                <p class="section-kicker">LEARNING NOTES</p>
+                <h2 id="notesTitle">学习笔记</h2>
+              </div>
+              <div class="home-heading-meta">
+                <strong><span id="noteCountLabel">--</span> 篇</strong>
+                <span>PDF 资料</span>
+              </div>
+            </header>
+            <div class="notes-list" id="notesList">
+              <div class="home-empty">正在读取学习笔记</div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <span>个人主页 · 学习记录持续更新</span>
+        <span id="homeUpdated">最近一次更新：--</span>
+      </footer>
+    </div>
+
+    <dialog class="course-dialog" id="courseDialog" aria-labelledby="dialogTitle">
+      <div class="dialog-heading">
+        <div>
+          <p class="section-kicker" id="dialogKicker">COURSE DETAIL</p>
+          <h2 id="dialogTitle">课程详情</h2>
+        </div>
+        <button
+          class="icon-button dialog-close"
+          id="closeDialogButton"
+          type="button"
+          title="关闭详情"
+          aria-label="关闭课程详情"
+        >
+          <span aria-hidden="true">&#x00d7;</span>
+        </button>
+      </div>
+      <div id="dialogContent"></div>
+    </dialog>
+  </body>
+</html>
