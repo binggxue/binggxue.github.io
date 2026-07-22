@@ -18,7 +18,7 @@
   overflow: hidden;
   border: 1px solid var(--hero-border);
   border-radius: var(--radius);
-  color: #f7fbfa;
+  color: #eaf0f7;
   background: var(--hero);
   box-shadow: var(--shadow);
 }
@@ -457,6 +457,7 @@
 
   .home-heading-meta {
     max-width: 45%;
+    padding-top: 18px;
   }
 
   .home-heading-meta strong,
