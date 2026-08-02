@@ -4,6 +4,18 @@ const NOTES_URL = "data/notes.json";
 const DAY_NAMES = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
 const COURSE_TONES = ["teal", "coral", "gold", "blue", "ink"];
 
+const WEATHER_EMOJI = {
+  0: "☀️", 1: "🌤️", 2: "⛅", 3: "☁️",
+  45: "🌫️", 48: "🌫️",
+  51: "🌦️", 53: "🌦️", 55: "🌧️", 56: "🌧️", 57: "🌧️",
+  61: "🌧️", 63: "🌧️", 65: "⛈️", 66: "⛈️", 67: "⛈️",
+  71: "🌨️", 73: "🌨️", 75: "❄️", 77: "🌨️",
+  80: "🌦️", 81: "🌧️", 82: "⛈️",
+  85: "🌨️", 86: "❄️",
+  95: "⛈️", 96: "⛈️", 99: "⛈️",
+};
+const WEATHER_FALLBACK = { lat: 31.2, lon: 121.5, city: "Shanghai" };
+
 const state = {
   schedule: null,
 };
@@ -18,6 +30,8 @@ const elements = {
   noteCountLabel: document.getElementById("noteCountLabel"),
   notesList: document.getElementById("notesList"),
   homeUpdated: document.getElementById("homeUpdated"),
+  weather: document.getElementById("weather"),
+  hitokoto: document.getElementById("hitokoto"),
   courseDialog: document.getElementById("courseDialog"),
   closeDialogButton: document.getElementById("closeDialogButton"),
   dialogKicker: document.getElementById("dialogKicker"),
@@ -29,6 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
   bindEvents();
   elements.homeUpdated.textContent = `最近一次更新：${formatLastModified()}`;
   loadHome();
+  loadWeather();
+  loadHitokoto();
 });
 
 function bindEvents() {
@@ -86,6 +102,42 @@ async function loadNotes() {
     elements.noteCountLabel.textContent = "--";
     elements.notesList.innerHTML = "";
     appendNotesEmpty("学习笔记暂时不可用，请检查 notes.json");
+  }
+}
+
+async function loadWeather() {
+  let coords = WEATHER_FALLBACK;
+  try {
+    const response = await fetch("https://ipwho.is/");
+    const data = await response.json();
+    if (data && data.success) {
+      coords = { lat: data.latitude, lon: data.longitude, city: data.city };
+    }
+  } catch (error) {
+    console.error("IP 定位失败：", error);
+  }
+
+  try {
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&current=temperature_2m,weather_code&timezone=auto`;
+    const response = await fetch(url);
+    const data = await response.json();
+    const temp = data.current.temperature_2m;
+    const emoji = WEATHER_EMOJI[data.current.weather_code] || "🌡️";
+    elements.weather.textContent = `${emoji} ${temp}°C ${coords.city}`;
+  } catch (error) {
+    console.error("获取天气失败：", error);
+    elements.weather.textContent = "天气加载失败";
+  }
+}
+
+async function loadHitokoto() {
+  try {
+    const response = await fetch("https://v1.jinrishici.com/all");
+    const data = await response.json();
+    elements.hitokoto.textContent = `${data.content} —— ${data.author}《${data.origin}》`;
+  } catch (error) {
+    console.error("一言加载失败：", error);
+    elements.hitokoto.textContent = "（一言加载失败）";
   }
 }
 
