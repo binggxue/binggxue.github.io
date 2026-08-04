@@ -1,0 +1,13 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    // 允许非标准字重值（项目中使用了 650/740/750 等）
+    "font-weight-notation": null,
+    // 允许 kebab-case 自定义属性
+    "custom-property-pattern": null,
+    // 允许 BEM-like 与 kebab-case 混用
+    "selector-class-pattern": null,
+    // 暂不强制要求 @keyframes / 伪元素顺序
+    "no-duplicate-selectors": null
+  }
+}
