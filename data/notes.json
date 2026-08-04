@@ -7,7 +7,7 @@
       "category": "学习资料",
       "date": "2026-07-20",
       "summary": "数学分析、实分析、复分析、泛函分析、调和分析",
-      "url": "example.pdf"
+      "url": "notes/example.pdf"
     },
     {
       "id": "algebra",
@@ -16,7 +16,7 @@
       "category": "学习资料",
       "date": "2026-07-20",
       "summary": "包括群、环、模、域等基础知识",
-      "url": "algebra.pdf"
+      "url": "notes/algebra.pdf"
     }
   ]
 }

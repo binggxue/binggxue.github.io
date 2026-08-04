@@ -8,17 +8,25 @@
       content="个人学习主页，展示今日课程、学习笔记和课程表入口。"
     />
     <title>薛冰的个人主页</title>
-    <link rel="icon" type="image/svg+xml" href="infty.png" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="img/logo.png" type="image/png" />
+    <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/home.css" />
     <script src="js/theme.js" defer></script>
-    <script src="js/home.js" defer></script>
+    <script type="module" src="js/home.js" defer></script>
   </head>
   <body>
     <div class="app-shell" id="top">
       <header class="site-header">
         <a class="brand" href="#top" aria-label="返回个人主页">
-          <img class="brand-mark" src="infty.png" alt="" aria-hidden="true" />
+          <img
+            class="brand-mark"
+            src="img/logo.png"
+            alt=""
+            aria-hidden="true"
+            width="32"
+            height="32"
+          />
           <span class="brand-copy">
             <span class="brand-kicker">Bingxue's Homepage</span>
             <strong>薛冰的个人主页</strong>
@@ -58,11 +66,23 @@
           </div>
 
           <div class="profile-media">
-            <img
-              class="profile-photo"
-              src="inftyprofile.png"
-              alt="个人头像"
-            />
+            <!--
+              预留 <picture> 结构：本地压缩并生成 .avif/.webp 后，
+              将 <img> 替换为下方注释中的 <picture>，可显著减小体积。
+            -->
+            <picture>
+              <!--
+              <source srcset="img/profile-photo.avif" type="image/avif" />
+              <source srcset="img/profile-photo.webp" type="image/webp" />
+              -->
+              <img
+                class="profile-photo"
+                src="img/profile-photo.png"
+                alt="个人头像"
+                width="178"
+                height="178"
+              />
+            </picture>
             <span class="profile-photo-label"></span>
           </div>
 
