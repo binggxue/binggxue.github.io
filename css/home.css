@@ -8,19 +8,6 @@
   color: var(--accent-dark);
 }
 
-.header-weather {
-  color: var(--ink-soft);
-  font-size: 13px;
-  font-weight: 650;
-  white-space: nowrap;
-}
-
-@media (max-width: 620px) {
-  .header-weather {
-    display: inline;
-  }
-}
-
 .hero-hitokoto {
   margin: 18px 0 0;
   padding: 12px 20px;
