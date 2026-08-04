@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="个人学习主页，展示今日课程、学习笔记和课程表入口。" />
     <title>薛冰的个人主页</title>
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="img/logo.png" type="image/png" />
+    <link rel="icon" href="img/logo.ico" type="image/ico" />
+    <link rel="icon" href="img/logo.webp" type="image/webp" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/home.css" />
     <script type="module" src="js/theme.js" defer></script>
@@ -18,7 +18,7 @@
         <a class="brand" href="#top" aria-label="返回个人主页">
           <img
             class="brand-mark"
-            src="img/logo.png"
+            src="img/logo.webp"
             alt=""
             aria-hidden="true"
             width="32"
@@ -63,18 +63,13 @@
           </div>
 
           <div class="profile-media">
-            <!--
-              预留 <picture> 结构：本地压缩并生成 .avif/.webp 后，
-              将 <img> 替换为下方注释中的 <picture>，可显著减小体积。
-            -->
+
             <picture>
-              <!--
-              <source srcset="img/profile-photo.avif" type="image/avif" />
               <source srcset="img/profile-photo.webp" type="image/webp" />
-              -->
+
               <img
                 class="profile-photo"
-                src="img/profile-photo.png"
+                src="img/profile-photo.webp"
                 alt="个人头像"
                 width="178"
                 height="178"
