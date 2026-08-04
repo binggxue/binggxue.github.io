@@ -3,15 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="根据 JSON 数据展示大学学期课程安排的响应式课程表。"
-    />
+    <meta name="description" content="根据 JSON 数据展示大学学期课程安排的响应式课程表。" />
     <title>课程表 · 薛冰的个人主页</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="img/logo.png" type="image/png" />
     <link rel="stylesheet" href="css/base.css" />
-    <script src="js/theme.js" defer></script>
+    <script type="module" src="js/theme.js" defer></script>
     <script type="module" src="js/courses.js" defer></script>
   </head>
   <body>
@@ -127,12 +124,7 @@
           </header>
 
           <div class="schedule-scroll" id="scheduleScroll" tabindex="0">
-            <div
-              class="schedule-grid"
-              id="scheduleGrid"
-              role="grid"
-              aria-label="大学课程表"
-            ></div>
+            <div class="schedule-grid" id="scheduleGrid" role="grid" aria-label="大学课程表"></div>
           </div>
         </section>
       </main>

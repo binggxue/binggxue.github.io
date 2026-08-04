@@ -42,7 +42,7 @@
 
 .profile-hero h1 {
   margin: 8px 0 10px;
-  color: #ffffff;
+  color: #fff;
   font-size: 46px;
   font-weight: 740;
   line-height: 1.15;
@@ -75,32 +75,35 @@
   font-size: 13px;
   font-weight: 700;
   text-decoration: none;
-  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease,
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
     transform 160ms ease;
 }
 
 .home-primary-link {
   border: 1px solid var(--accent);
-  color: #ffffff;
+  color: #fff;
   background: var(--accent);
 }
 
 .home-primary-link:hover {
-  border-color: #6666ff;
-  background: #6666ff;
+  border-color: #66f;
+  background: #66f;
   transform: translateY(-1px);
 }
 
 .home-secondary-link {
-  border: 1px solid rgba(231, 243, 241, 0.3);
+  border: 1px solid rgb(231 243 241 / 30%);
   color: #d8dbf0;
   background: transparent;
 }
 
 .home-secondary-link:hover {
   border-color: var(--hero-kicker);
-  color: #ffffff;
-  background: rgba(167, 173, 255, 0.12);
+  color: #fff;
+  background: rgb(167 173 255 / 12%);
 }
 
 .profile-media {
@@ -113,7 +116,7 @@
   display: block;
   width: 178px;
   height: 178px;
-  border: 6px solid rgba(231, 243, 241, 0.18);
+  border: 6px solid rgb(231 243 241 / 18%);
   border-radius: 50%;
   background: var(--accent-soft);
   object-fit: cover;
@@ -130,7 +133,7 @@
   display: grid;
   align-self: stretch;
   grid-template-rows: repeat(3, 1fr);
-  border-left: 1px solid rgba(231, 243, 241, 0.18);
+  border-left: 1px solid rgb(231 243 241 / 18%);
 }
 
 .profile-stat {
@@ -142,7 +145,7 @@
 }
 
 .profile-stat + .profile-stat {
-  border-top: 1px solid rgba(231, 243, 241, 0.14);
+  border-top: 1px solid rgb(231 243 241 / 14%);
 }
 
 .profile-stat > span {
@@ -151,7 +154,7 @@
 }
 
 .profile-stat strong {
-  color: #ffffff;
+  color: #fff;
   font-size: 22px;
   font-weight: 700;
   line-height: 1.2;
@@ -259,12 +262,15 @@
   color: var(--ink);
   background: #fffaf0;
   text-decoration: none;
-  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
 }
 
 .note-item:hover {
   border-color: var(--gold);
-  box-shadow: 0 7px 18px rgba(24, 36, 45, 0.1);
+  box-shadow: 0 7px 18px rgb(24 36 45 / 10%);
   transform: translateY(-1px);
 }
 
@@ -326,9 +332,9 @@
   text-align: center;
 }
 
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .home-content {
-    padding: 24px 24px 24px;
+    padding: 24px;
   }
 
   .profile-hero {
@@ -341,7 +347,7 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-rows: none;
     padding-top: 17px;
-    border-top: 1px solid rgba(231, 243, 241, 0.18);
+    border-top: 1px solid rgb(231 243 241 / 18%);
     border-left: 0;
   }
 
@@ -355,7 +361,7 @@
 
   .profile-stat + .profile-stat {
     border-top: 0;
-    border-left: 1px solid rgba(231, 243, 241, 0.14);
+    border-left: 1px solid rgb(231 243 241 / 14%);
   }
 
   .home-layout {
@@ -363,7 +369,7 @@
   }
 }
 
-@media (max-width: 620px) {
+@media (width <= 620px) {
   .home-content {
     padding: 16px 12px 20px;
   }
@@ -482,7 +488,7 @@
 
   .notes-list {
     gap: 7px;
-    padding: 14px 14px 14px;
+    padding: 14px;
   }
 
   .note-item {
@@ -499,7 +505,7 @@
 }
 
 html[data-theme="dark"] .profile-photo {
-  border-color: rgba(167, 173, 255, 0.24);
+  border-color: rgb(167 173 255 / 24%);
   background: #202655;
 }
 

@@ -3,16 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="个人学习主页，展示今日课程、学习笔记和课程表入口。"
-    />
+    <meta name="description" content="个人学习主页，展示今日课程、学习笔记和课程表入口。" />
     <title>薛冰的个人主页</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="img/logo.png" type="image/png" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/home.css" />
-    <script src="js/theme.js" defer></script>
+    <script type="module" src="js/theme.js" defer></script>
     <script type="module" src="js/home.js" defer></script>
   </head>
   <body>
@@ -100,17 +97,12 @@
               <strong><span id="noteCount">--</span><small> 篇</small></strong>
             </div>
           </div>
-          
         </section>
 
         <p class="hero-hitokoto" id="hitokoto">加载中...</p>
 
         <div class="home-layout">
-          <section
-            class="today-panel home-today-panel"
-            id="today"
-            aria-labelledby="todayTitle"
-          >
+          <section class="today-panel home-today-panel" id="today" aria-labelledby="todayTitle">
             <header class="today-heading">
               <div class="today-title-wrap">
                 <span class="today-mark" aria-hidden="true">今</span>
@@ -120,7 +112,6 @@
                 </div>
               </div>
               <div class="today-heading-actions">
-                
                 <div class="today-meta">
                   <strong id="todayDate">正在读取日期</strong>
                   <span id="todayCourseCount">正在读取今日安排</span>

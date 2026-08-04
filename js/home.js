@@ -146,8 +146,7 @@ function renderTodayCourses() {
 
   const todayCourses = state.schedule.courses
     .filter(
-      (course) =>
-        course.dayOfWeek === context.dayOfWeek && course.weeks.includes(context.week),
+      (course) => course.dayOfWeek === context.dayOfWeek && course.weeks.includes(context.week),
     )
     .sort((courseA, courseB) => courseA.startPeriodIndex - courseB.startPeriodIndex);
 

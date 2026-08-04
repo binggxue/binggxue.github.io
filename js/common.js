@@ -157,9 +157,7 @@ export function getTimeMinutes(value) {
 
   const hours = Number(match[1]);
   const minutes = Number(match[2]);
-  return hours >= 0 && hours < 24 && minutes >= 0 && minutes < 60
-    ? hours * 60 + minutes
-    : null;
+  return hours >= 0 && hours < 24 && minutes >= 0 && minutes < 60 ? hours * 60 + minutes : null;
 }
 
 export function appendTodayEmpty(message, container) {

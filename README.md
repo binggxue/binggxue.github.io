@@ -44,27 +44,27 @@
 {
   "semester": {
     "name": "2026 秋季学期",
-    "startDate": "2026-09-14",  // 学期第一天（周一），用于计算当前周次
-    "totalWeeks": 16
+    "startDate": "2026-09-14", // 学期第一天（周一），用于计算当前周次
+    "totalWeeks": 16,
   },
   "periods": [
-    { "id": 1, "label": "第1节", "startTime": "08:00", "endTime": "08:45" }
+    { "id": 1, "label": "第1节", "startTime": "08:00", "endTime": "08:45" },
     // ... 其余节次
   ],
   "courses": [
     {
       "id": "03044501",
       "courseName": "道路工程全过程课程设计",
-      "dayOfWeek": 2,          // 1 = 周一 ... 7 = 周日
-      "startPeriod": 1,        // 对应 periods[].id
+      "dayOfWeek": 2, // 1 = 周一 ... 7 = 周日
+      "startPeriod": 1, // 对应 periods[].id
       "endPeriod": 3,
-      "weeks": "1-16",         // 支持如 "1-16"、单个数字，或逗号/顿号分隔的多个区间
+      "weeks": "1-16", // 支持如 "1-16"、单个数字，或逗号/顿号分隔的多个区间
       "teacher": "孙斌，王俊骅等",
       "credits": 7.0,
       "room": "南409",
-      "note": ""
-    }
-  ]
+      "note": "",
+    },
+  ],
 }
 ```
 
@@ -82,9 +82,9 @@
       "category": "学习资料",
       "date": "2026-07-20",
       "summary": "数学分析、实分析、复分析、泛函分析、调和分析",
-      "url": "notes/example.pdf"
-    }
-  ]
+      "url": "notes/example.pdf",
+    },
+  ],
 }
 ```
 

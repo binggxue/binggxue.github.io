@@ -1,5 +1,8 @@
 import { defineConfig } from "vite";
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // 多入口：个人主页 + 完整课程表
 export default defineConfig({

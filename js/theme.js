@@ -6,7 +6,7 @@
     try {
       const value = window.localStorage.getItem(THEME_KEY);
       return MODES.includes(value) ? value : null;
-    } catch (error) {
+    } catch {
       return null;
     }
   }
@@ -36,10 +36,7 @@
     document.querySelectorAll(".theme-toggle").forEach((button) => {
       button.dataset.mode = mode;
       button.title = getModeLabel(mode);
-      button.setAttribute(
-        "aria-label",
-        `切换浅色/暗黑模式（当前为${getModeLabel(mode)}）`,
-      );
+      button.setAttribute("aria-label", `切换浅色/暗黑模式（当前为${getModeLabel(mode)}）`);
     });
   }
 
@@ -49,7 +46,7 @@
     if (persist) {
       try {
         window.localStorage.setItem(THEME_KEY, mode);
-      } catch (error) {
+      } catch {
         // Private browsing can disable localStorage; the current page still switches theme.
       }
     }

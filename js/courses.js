@@ -14,8 +14,6 @@ import {
   getCoursePeriodText,
   getCoursePeriodBounds,
   getCourseLabelText,
-  expandWeeks,
-  formatWeeks,
   startOfDay,
   addDays,
   isToday,
@@ -76,7 +74,9 @@ function bindEvents() {
   elements.weekSelect.addEventListener("change", (event) => {
     selectWeek(Number(event.target.value));
   });
-  elements.closeDialogButton.addEventListener("click", () => closeCourseDialog(elements.courseDialog));
+  elements.closeDialogButton.addEventListener("click", () =>
+    closeCourseDialog(elements.courseDialog),
+  );
   elements.courseDialog.addEventListener("click", (event) => {
     if (event.target === elements.courseDialog) {
       closeCourseDialog(elements.courseDialog);
@@ -305,8 +305,7 @@ function renderTodayCourses() {
 
   const todayCourses = state.schedule.courses
     .filter(
-      (course) =>
-        course.dayOfWeek === context.dayOfWeek && course.weeks.includes(context.week),
+      (course) => course.dayOfWeek === context.dayOfWeek && course.weeks.includes(context.week),
     )
     .sort((courseA, courseB) => courseA.startPeriodIndex - courseB.startPeriodIndex);
 
@@ -327,7 +326,9 @@ function renderTodayCourses() {
     card.type = "button";
     card.className = `today-course tone-${tone}`;
     card.setAttribute("aria-label", `${course.courseName}，${period.text}`);
-    card.addEventListener("click", () => openCourseDialog(course, context.week, state.schedule, dialogParts));
+    card.addEventListener("click", () =>
+      openCourseDialog(course, context.week, state.schedule, dialogParts),
+    );
 
     const time = document.createElement("span");
     time.className = "today-time";
@@ -355,8 +356,7 @@ function groupCoursesByTime(courses) {
   const groups = [];
   const sortedCourses = [...courses].sort(
     (courseA, courseB) =>
-      courseA.dayOfWeek - courseB.dayOfWeek ||
-      courseA.startPeriodIndex - courseB.startPeriodIndex,
+      courseA.dayOfWeek - courseB.dayOfWeek || courseA.startPeriodIndex - courseB.startPeriodIndex,
   );
 
   sortedCourses.forEach((course) => {
