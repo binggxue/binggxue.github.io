@@ -21,6 +21,75 @@
   text-align: center;
 }
 
+.almac-card {
+  margin: 18px 0 0;
+  padding: 18px 24px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.almac-card[hidden] {
+  display: none;
+}
+
+.almac-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.almac-title {
+  margin: 4px 0 0;
+  font-size: 18px;
+  font-weight: 740;
+  line-height: 1.25;
+}
+
+.almac-lunar {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.almac-body {
+  display: grid;
+  gap: 6px;
+}
+
+.almac-row {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  margin: 0;
+  min-width: 0;
+}
+
+.almac-label {
+  flex: 0 0 auto;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.almac-label-yi {
+  color: var(--teal);
+}
+
+.almac-label-ji {
+  color: var(--coral);
+}
+
+.almac-text {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
 .profile-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 210px 176px;
@@ -372,6 +441,26 @@
 @media (width <= 620px) {
   .home-content {
     padding: 16px 12px 20px;
+  }
+
+  .almac-card {
+    padding: 14px 16px;
+  }
+
+  .almac-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .almac-row {
+    gap: 8px;
+  }
+
+  .almac-label,
+  .almac-text {
+    font-size: 12px;
   }
 
   .profile-hero {

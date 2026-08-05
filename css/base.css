@@ -12,6 +12,7 @@
   --accent-soft: #eef;
   --teal: #33f;
   --teal-soft: #eef;
+  --coral: #f54;
   --gold: #c9952d;
   --hero: #171d4b;
   --hero-border: #2c387d;
@@ -37,6 +38,7 @@ html[data-theme="dark"] {
   --accent-soft: #222655;
   --teal: #55f;
   --teal-soft: #202452;
+  --coral: #f88;
   --gold: #d5ad4d;
   --hero: #10163d;
   --hero-border: #3d49a9;

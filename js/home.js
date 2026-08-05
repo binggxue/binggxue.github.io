@@ -16,6 +16,7 @@ import {
   formatNoteDate,
   formatLastModified,
 } from "./common.js";
+import { SolarDay } from "tyme4ts";
 
 const state = {
   schedule: null,
@@ -32,6 +33,10 @@ const elements = {
   notesList: document.getElementById("notesList"),
   homeUpdated: document.getElementById("homeUpdated"),
   hitokoto: document.getElementById("hitokoto"),
+  almacCard: document.getElementById("almacCard"),
+  almacLunar: document.getElementById("almacLunar"),
+  almacYi: document.getElementById("almacYi"),
+  almacJi: document.getElementById("almacJi"),
   courseDialog: document.getElementById("courseDialog"),
   closeDialogButton: document.getElementById("closeDialogButton"),
   dialogKicker: document.getElementById("dialogKicker"),
@@ -51,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
   elements.homeUpdated.textContent = `最近一次更新：${formatLastModified()}`;
   loadHome();
   loadHitokoto();
+  renderAlmanac();
 });
 
 function bindEvents() {
@@ -121,6 +127,33 @@ async function loadHitokoto() {
   } catch (error) {
     console.error("加载失败：", error);
     elements.hitokoto.textContent = "（加载失败）";
+  }
+}
+
+function renderAlmanac() {
+  try {
+    const now = new Date();
+    const lunarDay = SolarDay.fromYmd(
+      now.getFullYear(),
+      now.getMonth() + 1,
+      now.getDate(),
+    ).getLunarDay();
+
+    const yi = lunarDay.getRecommends().map((item) => item.getName());
+    const ji = lunarDay.getAvoids().map((item) => item.getName());
+
+    if (yi.length === 0 && ji.length === 0) {
+      elements.almacCard.hidden = true;
+      return;
+    }
+
+    elements.almacLunar.textContent = lunarDay.toString();
+    elements.almacYi.textContent = yi.length ? yi.join("、") : "—";
+    elements.almacJi.textContent = ji.length ? ji.join("、") : "—";
+    elements.almacCard.hidden = false;
+  } catch (error) {
+    console.error("黄历加载失败：", error);
+    elements.almacCard.hidden = true;
   }
 }
 
