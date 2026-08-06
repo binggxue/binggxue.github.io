@@ -17,7 +17,7 @@ import {
   formatNoteDate,
   formatLastModified,
 } from "./common.js";
-import { SolarDay } from "tyme4ts";
+import { SolarDay, SolarFestival } from "tyme4ts";
 
 const state = {
   schedule: null,
@@ -40,6 +40,7 @@ const elements = {
   almacLunar: document.getElementById("almacLunar"),
   almacYi: document.getElementById("almacYi"),
   almacJi: document.getElementById("almacJi"),
+  almacFestival: document.getElementById("almacFestival"),
   previousDayButton: document.getElementById("previousDayButton"),
   nextDayButton: document.getElementById("nextDayButton"),
   courseDialog: document.getElementById("courseDialog"),
@@ -141,14 +142,21 @@ async function loadHitokoto() {
 function renderAlmanac(date) {
   try {
     const target = startOfDay(date);
-    const lunarDay = SolarDay.fromYmd(
-      target.getFullYear(),
-      target.getMonth() + 1,
-      target.getDate(),
-    ).getLunarDay();
+    const year = target.getFullYear();
+    const month = target.getMonth() + 1;
+    const day = target.getDate();
+    const solarDay = SolarDay.fromYmd(year, month, day);
+    const lunarDay = solarDay.getLunarDay();
 
     const yi = lunarDay.getRecommends().map((item) => item.getName());
     const ji = lunarDay.getAvoids().map((item) => item.getName());
+
+    const festivalText = resolveFestivalText(
+      solarDay.getLegalHoliday(),
+      lunarDay.getFestival(),
+      SolarFestival.fromYmd(year, month, day),
+    );
+    const termText = resolveTermText(solarDay, festivalText);
 
     elements.almacDateLabel.textContent = isToday(target)
       ? formatDate(target, true) + "(今天)"
@@ -156,11 +164,46 @@ function renderAlmanac(date) {
     elements.almacLunar.textContent = lunarDay.toString();
     elements.almacYi.textContent = yi.length ? yi.join("、") : "—";
     elements.almacJi.textContent = ji.length ? ji.join("、") : "—";
+
+    const label = [festivalText, termText].filter(Boolean).join(" · ");
+    elements.almacFestival.textContent = label;
+    elements.almacFestival.hidden = !label;
     elements.almacCard.hidden = false;
   } catch (error) {
     console.error("黄历加载失败：", error);
     elements.almacCard.hidden = true;
   }
+}
+
+function resolveFestivalText(legalHoliday, lunarFestival, solarFestival) {
+  if (legalHoliday && !legalHoliday.isWork()) {
+    const isFestivalDay = [lunarFestival, solarFestival].some(
+      (festival) => festival && festival.getName() === legalHoliday.getName(),
+    );
+    return isFestivalDay ? legalHoliday.getName() : `${legalHoliday.getName()}假期`;
+  }
+  if (lunarFestival) {
+    return lunarFestival.getName();
+  }
+  if (solarFestival) {
+    return solarFestival.getName();
+  }
+  if (legalHoliday && legalHoliday.isWork()) {
+    return `${legalHoliday.getName()}·调休`;
+  }
+  return "";
+}
+
+function resolveTermText(solarDay, festivalText) {
+  const termDay = solarDay.getTermDay();
+  if (termDay.getDayIndex() !== 0) {
+    return "";
+  }
+  const termName = termDay.getSolarTerm().getName();
+  if (festivalText === termName || festivalText === `${termName}节`) {
+    return "";
+  }
+  return termName;
 }
 
 function changeAlmanacDay(offset) {

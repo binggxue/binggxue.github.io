@@ -62,6 +62,27 @@
   flex: 0 0 auto;
 }
 
+.almac-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.almac-festival {
+  margin: 0;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.almac-festival[hidden] {
+  display: none;
+}
+
 .almac-nav-button {
   width: 32px;
   height: 32px;
@@ -471,6 +492,17 @@
     align-items: flex-start;
     gap: 4px;
     margin-bottom: 10px;
+  }
+
+  .almac-meta {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .almac-festival {
+    white-space: normal;
   }
 
   .almac-row {
