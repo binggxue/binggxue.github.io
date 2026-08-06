@@ -22,7 +22,6 @@
 }
 
 .almac-card {
-  margin: 18px 0 0;
   padding: 18px 24px;
   border: 1px solid var(--line);
   border-left: 4px solid var(--gold);
@@ -37,9 +36,9 @@
 
 .almac-head {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   margin-bottom: 12px;
 }
 
@@ -51,10 +50,24 @@
 }
 
 .almac-lunar {
-  margin: 0;
+  margin: 4px 0 0;
   color: var(--muted);
   font-size: 12px;
   letter-spacing: 0.04em;
+}
+
+.almac-nav {
+  display: flex;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.almac-nav-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  font-size: 22px;
+  padding-bottom: 5px;
 }
 
 .almac-body {
@@ -241,6 +254,12 @@
   gap: 18px;
   align-items: start;
   margin-top: 18px;
+}
+
+.home-side {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
 }
 
 .home-today-panel {
@@ -547,6 +566,16 @@
 
   .home-today-panel {
     margin-top: 0;
+  }
+
+  .home-side {
+    gap: 12px;
+  }
+
+  .almac-nav-button {
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
   }
 
   .home-panel-footer {

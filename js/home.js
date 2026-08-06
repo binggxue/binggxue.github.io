@@ -12,6 +12,7 @@ import {
   getCoursePeriodBounds,
   getCourseLabelText,
   startOfDay,
+  isToday,
   formatDate,
   formatNoteDate,
   formatLastModified,
@@ -20,6 +21,7 @@ import { SolarDay } from "tyme4ts";
 
 const state = {
   schedule: null,
+  almacDate: null,
 };
 
 const elements = {
@@ -34,9 +36,12 @@ const elements = {
   homeUpdated: document.getElementById("homeUpdated"),
   hitokoto: document.getElementById("hitokoto"),
   almacCard: document.getElementById("almacCard"),
+  almacDateLabel: document.getElementById("almacDateLabel"),
   almacLunar: document.getElementById("almacLunar"),
   almacYi: document.getElementById("almacYi"),
   almacJi: document.getElementById("almacJi"),
+  previousDayButton: document.getElementById("previousDayButton"),
+  nextDayButton: document.getElementById("nextDayButton"),
   courseDialog: document.getElementById("courseDialog"),
   closeDialogButton: document.getElementById("closeDialogButton"),
   dialogKicker: document.getElementById("dialogKicker"),
@@ -54,9 +59,10 @@ const dialogParts = {
 document.addEventListener("DOMContentLoaded", () => {
   bindEvents();
   elements.homeUpdated.textContent = `最近一次更新：${formatLastModified()}`;
+  state.almacDate = startOfDay(new Date());
   loadHome();
   loadHitokoto();
-  renderAlmanac();
+  renderAlmanac(state.almacDate);
 });
 
 function bindEvents() {
@@ -68,6 +74,8 @@ function bindEvents() {
       closeCourseDialog(elements.courseDialog);
     }
   });
+  elements.previousDayButton.addEventListener("click", () => changeAlmanacDay(-1));
+  elements.nextDayButton.addEventListener("click", () => changeAlmanacDay(1));
 }
 
 async function loadHome() {
@@ -130,23 +138,21 @@ async function loadHitokoto() {
   }
 }
 
-function renderAlmanac() {
+function renderAlmanac(date) {
   try {
-    const now = new Date();
+    const target = startOfDay(date);
     const lunarDay = SolarDay.fromYmd(
-      now.getFullYear(),
-      now.getMonth() + 1,
-      now.getDate(),
+      target.getFullYear(),
+      target.getMonth() + 1,
+      target.getDate(),
     ).getLunarDay();
 
     const yi = lunarDay.getRecommends().map((item) => item.getName());
     const ji = lunarDay.getAvoids().map((item) => item.getName());
 
-    if (yi.length === 0 && ji.length === 0) {
-      elements.almacCard.hidden = true;
-      return;
-    }
-
+    elements.almacDateLabel.textContent = isToday(target)
+      ? formatDate(target, true) + "(今天)"
+      : formatDate(target, true);
     elements.almacLunar.textContent = lunarDay.toString();
     elements.almacYi.textContent = yi.length ? yi.join("、") : "—";
     elements.almacJi.textContent = ji.length ? ji.join("、") : "—";
@@ -155,6 +161,13 @@ function renderAlmanac() {
     console.error("黄历加载失败：", error);
     elements.almacCard.hidden = true;
   }
+}
+
+function changeAlmanacDay(offset) {
+  const next = new Date(state.almacDate);
+  next.setDate(next.getDate() + offset);
+  state.almacDate = startOfDay(next);
+  renderAlmanac(state.almacDate);
 }
 
 function renderTodayCourses() {

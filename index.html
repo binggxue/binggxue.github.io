@@ -96,51 +96,73 @@
 
         <p class="hero-hitokoto" id="hitokoto">加载中...</p>
 
-        <section class="almac-card" id="almacCard" hidden aria-label="今日黄历">
-          <header class="almac-head">
-            <div>
-              <p class="section-kicker">DAILY ALMANAC</p>
-              <h2 class="almac-title">今日黄历</h2>
-            </div>
-            <p class="almac-lunar" id="almacLunar"></p>
-          </header>
-          <div class="almac-body">
-            <p class="almac-row">
-              <span class="almac-label almac-label-yi">宜</span>
-              <span class="almac-text" id="almacYi"></span>
-            </p>
-            <p class="almac-row">
-              <span class="almac-label almac-label-ji">忌</span>
-              <span class="almac-text" id="almacJi"></span>
-            </p>
-          </div>
-        </section>
-
         <div class="home-layout">
-          <section class="today-panel home-today-panel" id="today" aria-labelledby="todayTitle">
-            <header class="today-heading">
-              <div class="today-title-wrap">
-                <span class="today-mark" aria-hidden="true">今</span>
+          <div class="home-side">
+            <section class="today-panel home-today-panel" id="today" aria-labelledby="todayTitle">
+              <header class="today-heading">
+                <div class="today-title-wrap">
+                  <span class="today-mark" aria-hidden="true">今</span>
+                  <div>
+                    <p class="section-kicker">TODAY'S COURSES</p>
+                    <h2 id="todayTitle">今日课表</h2>
+                  </div>
+                </div>
+                <div class="today-heading-actions">
+                  <div class="today-meta">
+                    <strong id="todayDate">正在读取日期</strong>
+                    <span id="todayCourseCount">正在读取今日安排</span>
+                  </div>
+                </div>
+              </header>
+              <div class="today-course-list" id="todayCourseList"></div>
+              <footer class="home-panel-footer">
+                <a class="section-inline-link" href="courses.html">
+                  <span>查看完整课程表</span>
+                  <span aria-hidden="true">&#x2197;</span>
+                </a>
+              </footer>
+            </section>
+
+            <section class="almac-card" id="almacCard" hidden aria-label="每日黄历">
+              <header class="almac-head">
                 <div>
-                  <p class="section-kicker">TODAY'S COURSES</p>
-                  <h2 id="todayTitle">今日课表</h2>
+                  <p class="section-kicker">DAILY ALMANAC</p>
+                  <h2 class="almac-title" id="almacDateLabel">每日黄历</h2>
+                  <p class="almac-lunar" id="almacLunar"></p>
                 </div>
-              </div>
-              <div class="today-heading-actions">
-                <div class="today-meta">
-                  <strong id="todayDate">正在读取日期</strong>
-                  <span id="todayCourseCount">正在读取今日安排</span>
+                <div class="almac-nav">
+                  <button
+                    class="icon-button almac-nav-button"
+                    id="previousDayButton"
+                    type="button"
+                    title="上一天"
+                    aria-label="上一天"
+                  >
+                    <span aria-hidden="true">&#x2039;</span>
+                  </button>
+                  <button
+                    class="icon-button almac-nav-button"
+                    id="nextDayButton"
+                    type="button"
+                    title="下一天"
+                    aria-label="下一天"
+                  >
+                    <span aria-hidden="true">&#x203A;</span>
+                  </button>
                 </div>
+              </header>
+              <div class="almac-body">
+                <p class="almac-row">
+                  <span class="almac-label almac-label-yi">宜</span>
+                  <span class="almac-text" id="almacYi"></span>
+                </p>
+                <p class="almac-row">
+                  <span class="almac-label almac-label-ji">忌</span>
+                  <span class="almac-text" id="almacJi"></span>
+                </p>
               </div>
-            </header>
-            <div class="today-course-list" id="todayCourseList"></div>
-            <footer class="home-panel-footer">
-              <a class="section-inline-link" href="courses.html">
-                <span>查看完整课程表</span>
-                <span aria-hidden="true">&#x2197;</span>
-              </a>
-            </footer>
-          </section>
+            </section>
+          </div>
 
           <section class="home-section notes-section" id="notes" aria-labelledby="notesTitle">
             <header class="home-section-heading">
