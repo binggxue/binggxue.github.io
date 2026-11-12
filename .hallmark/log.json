@@ -1,0 +1,28 @@
+[
+ {
+  "mode": "redesign",
+  "depth": "full",
+  "scope": "page",
+  "shape": "Marquee Hero",
+  "theme": "Editorial",
+  "axes": "light/display-condensed/chromatic-red",
+  "hero": "Banner",
+  "nav": "masthead",
+  "footer": "mast",
+  "imagery": "the user portrait, type-led",
+  "photos": [],
+  "entry": "personal learning homepage: study notes, daily almanac, daily quote",
+  "fingerprint": "Hanging|Asymmetric spans|Hairline|Solid|Margin-aligned|None",
+  "sections": [
+   "Hero (Bing + portrait)",
+   "Quote (daily line)",
+   "Almanac (今日 column)",
+   "Notes (contents rows)",
+   "Footer (mast)"
+  ],
+  "signature": "the almanac as a printed 今日 column",
+  "waived": [],
+  "prompt": "personal learning homepage: study notes, daily almanac, profile, classical quote",
+  "date": "2026-11-12"
+ }
+]

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "薛冰的个人学习主页，展示今日课程、完整课程表和学习笔记。",
+  "description": "薛冰的个人学习主页，展示学习笔记与每日黄历。",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

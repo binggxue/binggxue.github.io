@@ -8,7 +8,7 @@ module.exports = {
     "custom-property-pattern": null,
     // 允许 BEM-like 与 kebab-case 混用
     "selector-class-pattern": null,
-    // 允许驼峰 id（项目 HTML 中大量使用，如 todayDate、weekSelect、dialogContent）
+    // 允许驼峰 id（项目 HTML 中大量使用，如 noteCount、almacCard）
     "selector-id-pattern": null,
     // 暂不强制要求去重选择器（media query 中重复合理）
     "no-duplicate-selectors": null,

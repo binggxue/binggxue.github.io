@@ -1,20 +1,9 @@
 import { defineConfig } from "vite";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-// 多入口：个人主页 + 完整课程表
+// GitHub Pages 用户站点部署在根路径；使用相对路径让资源引用无子路径依赖
 export default defineConfig({
-  // GitHub Pages 用户站点部署在根路径；使用相对路径让资源引用无子路径依赖
   base: "./",
   build: {
     outDir: "dist",
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, "index.html"),
-        courses: resolve(__dirname, "courses.html"),
-      },
-    },
   },
 });

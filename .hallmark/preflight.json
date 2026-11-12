@@ -1,0 +1,38 @@
+{
+  "target": "index.html (single page) + css/base.css + css/home.css + js/home.js",
+  "genre": "editorial (inferred: unstamped personal homepage)",
+  "signals": [
+    "no design.md / DESIGN.md at root",
+    "no .hallmark/brand-spec.md and no real brand in the prompt",
+    "palette: css/base.css:1-50 (navy --hero #171d4b, blue --accent #33f, gold --gold, paper #fff)",
+    "fonts: css/base.css:66 (Inter, Noto Sans SC, PingFang SC, Microsoft YaHei)",
+    "framework: Vite 5, plain CSS, no Tailwind",
+    "product: static personal homepage, runs with npm run dev at http://localhost:5173",
+    "no Inspo MCP server; TOGETHER_API_KEY unset"
+  ],
+  "preserved": {
+    "content": [
+      "name Bing / 薛冰, intro sentence (index.html:49-53)",
+      "avatar img/profile-photo.webp (index.html:64-74)",
+      "2 notes from public/data/notes.json rendered into #notesList (js/home.js:renderNotes)",
+      "daily almanac: lunar date, 宜/忌, festival/term (js/home.js:renderAlmanac)",
+      "hitokoto quote strip (js/home.js:loadHitokoto)",
+      "footer: copyright + last modified (index.html:152-155)"
+    ],
+    "wiring": [
+      "theme.js light/dark/system toggle, localStorage",
+      "home.js fetch data/notes.json, tyme4ts almanac, almanac prev/next handlers",
+      "ids: themeToggle, hitokoto, almacCard, almacDateLabel, almacLunar, almacYi, almacJi, almacFestival, previousDayButton, nextDayButton, noteCount, noteCountLabel, notesList, homeUpdated",
+      "links: #notes, external note PDFs, #top"
+    ]
+  },
+  "introduced": [
+    "Hallmark theme system: tokens.css + base.css scaffold, type scale, spacing scale, motion",
+    "one accent, one radius per nesting level, eight control states, reduced-motion fallback"
+  ],
+  "files_planned": {
+    "edit": ["index.html", "css/base.css", "css/home.css"],
+    "create": [".hallmark/log.json (build log)"],
+    "delete": []
+  }
+}

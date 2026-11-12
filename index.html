@@ -3,211 +3,120 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="个人学习主页，展示今日课程、学习笔记和课程表入口。" />
+    <meta name="description" content="薛冰的个人学习主页：学习笔记与每日黄历。" />
     <title>薛冰的个人主页</title>
     <link rel="icon" href="img/logo.ico" type="image/ico" />
     <link rel="icon" href="img/logo.webp" type="image/webp" />
-    <link rel="stylesheet" href="css/base.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/home.css" />
     <script type="module" src="js/theme.js" defer></script>
     <script type="module" src="js/home.js" defer></script>
   </head>
   <body>
+    <a class="skip" href="#main">跳到正文</a>
     <div class="app-shell" id="top">
-      <header class="site-header">
-        <a class="brand" href="#top" aria-label="返回个人主页">
-          <img
-            class="brand-mark"
-            src="img/logo.webp"
-            alt=""
-            aria-hidden="true"
-            width="32"
-            height="32"
-          />
-          <span class="brand-copy">
-            <span class="brand-kicker">Bingxue's Homepage</span>
-            <strong>薛冰的个人主页</strong>
-          </span>
-        </a>
-
-        <nav class="header-actions" aria-label="页面导航">
-          <button
-            class="theme-toggle"
-            id="themeToggle"
-            type="button"
-            data-mode="system"
-            title="跟随系统"
-            aria-label="切换浅色/暗黑模式（当前为跟随系统）"
-          ></button>
-          <a class="header-link" href="#today">今日课表</a>
-          <a class="header-link" href="#notes">学习笔记</a>
-          <a class="header-link header-link-accent" href="courses.html">完整课程表</a>
-        </nav>
+      <header class="masthead">
+        <div class="container masthead__inner">
+          <span class="masthead__spacer" aria-hidden="true"></span>
+          <a class="masthead__wordmark" href="#top">薛冰的个人主页</a>
+          <div class="masthead__tools">
+            <a class="masthead__link" href="#notes">学习笔记</a>
+            <button
+              class="theme-toggle"
+              id="themeToggle"
+              type="button"
+              data-mode="system"
+              title="跟随系统"
+              aria-label="切换浅色/暗黑模式（当前为跟随系统）"
+            ></button>
+          </div>
+        </div>
       </header>
 
-      <main class="home-content">
-        <section class="profile-hero" aria-labelledby="profileName">
-          <div class="profile-hero-copy">
-            <p class="section-kicker">WELCOME TO MY HOMEPAGE</p>
-            <h1 id="profileName">Bing</h1>
-            <p class="profile-intro" id="profileIntro">
-              这里记录课程安排、学习笔记，以及每天正在积累的知识。
-            </p>
-            <div class="profile-actions">
-              <a class="home-primary-link" href="#today">
-                <span>查看今日课表</span>
-                <span aria-hidden="true">&#x2192;</span>
-              </a>
-              <a class="home-secondary-link" href="#notes">浏览学习笔记</a>
+      <main id="main">
+        <section class="hero" aria-labelledby="profileName">
+          <div class="container hero__grid">
+            <div class="hero__copy">
+              <h1 id="profileName">Bing</h1>
+              <p class="lead" id="profileIntro">这里记录学习笔记，以及每天正在积累的知识。</p>
+              <a class="btn btn--primary" href="#notes">浏览学习笔记</a>
             </div>
+            <figure class="hero__portrait">
+              <img src="img/profile-photo.webp" alt="薛冰的头像" width="178" height="178" />
+              <figcaption class="hero__caption">
+                <span id="noteCount">--</span> 篇学习笔记
+              </figcaption>
+            </figure>
           </div>
+        </section>
 
-          <div class="profile-media">
-
-            <picture>
-              <source srcset="img/profile-photo.webp" type="image/webp" />
-
-              <img
-                class="profile-photo"
-                src="img/profile-photo.webp"
-                alt="个人头像"
-                width="178"
-                height="178"
-              />
-            </picture>
-            <span class="profile-photo-label"></span>
-          </div>
-
-          <div class="profile-rail" aria-label="学习主页概览">
-            <div class="profile-stat">
-              <span>今日课程</span>
-              <strong id="homeTodayCount">--</strong>
+        <section class="almanac" id="almacCard" aria-labelledby="almanacTitle" hidden>
+          <div class="container almanac__grid">
+            <div class="almanac__head">
+              <h2 id="almanacTitle">今日</h2>
+              <p class="almanac__date" id="almacDateLabel">每日黄历</p>
+              <p class="almanac__festival" id="almacFestival" hidden></p>
             </div>
-            <div class="profile-stat">
-              <span>当前周次</span>
-              <strong id="homeWeekLabel">--</strong>
-            </div>
-            <div class="profile-stat">
-              <span>学习笔记</span>
-              <strong><span id="noteCount">--</span><small> 篇</small></strong>
+            <div class="almanac__body">
+              <div class="almanac__nav">
+                <button class="icon-btn" id="previousDayButton" type="button">上一天</button>
+                <button class="icon-btn" id="nextDayButton" type="button">下一天</button>
+              </div>
+              <dl class="almanac__rows">
+                <div class="almanac__row">
+                  <dt>农历</dt>
+                  <dd id="almacLunar"></dd>
+                </div>
+                <div class="almanac__row">
+                  <dt class="almanac__yi">宜</dt>
+                  <dd id="almacYi"></dd>
+                </div>
+                <div class="almanac__row">
+                  <dt>忌</dt>
+                  <dd id="almacJi"></dd>
+                </div>
+              </dl>
             </div>
           </div>
         </section>
 
-        <p class="hero-hitokoto" id="hitokoto">加载中...</p>
-
-        <div class="home-layout">
-          <div class="home-side">
-            <section class="today-panel home-today-panel" id="today" aria-labelledby="todayTitle">
-              <header class="today-heading">
-                <div class="today-title-wrap">
-                  <span class="today-mark" aria-hidden="true">今</span>
-                  <div>
-                    <p class="section-kicker">TODAY'S COURSES</p>
-                    <h2 id="todayTitle">今日课表</h2>
-                  </div>
-                </div>
-                <div class="today-heading-actions">
-                  <div class="today-meta">
-                    <strong id="todayDate">正在读取日期</strong>
-                    <span id="todayCourseCount">正在读取今日安排</span>
-                  </div>
-                </div>
-              </header>
-              <div class="today-course-list" id="todayCourseList"></div>
-              <footer class="home-panel-footer">
-                <a class="section-inline-link" href="courses.html">
-                  <span>查看完整课程表</span>
-                  <span aria-hidden="true">&#x2197;</span>
-                </a>
-              </footer>
-            </section>
-
-            <section class="almac-card" id="almacCard" hidden aria-label="每日黄历">
-              <header class="almac-head">
-                <div>
-                  <p class="section-kicker">DAILY ALMANAC</p>
-                  <h2 class="almac-title" id="almacDateLabel">每日黄历</h2>
-                  <p class="almac-lunar" id="almacLunar"></p>
-                </div>
-                <div class="almac-meta">
-                  <div class="almac-nav">
-                    <button
-                      class="icon-button almac-nav-button"
-                      id="previousDayButton"
-                      type="button"
-                      title="上一天"
-                      aria-label="上一天"
-                    >
-                      <span aria-hidden="true">&#x2039;</span>
-                    </button>
-                    <button
-                      class="icon-button almac-nav-button"
-                      id="nextDayButton"
-                      type="button"
-                      title="下一天"
-                      aria-label="下一天"
-                    >
-                      <span aria-hidden="true">&#x203A;</span>
-                    </button>
-                  </div>
-                  <p class="almac-festival" id="almacFestival"></p>
-                </div>
-              </header>
-              <div class="almac-body">
-                <p class="almac-row">
-                  <span class="almac-label almac-label-yi">宜</span>
-                  <span class="almac-text" id="almacYi"></span>
-                </p>
-                <p class="almac-row">
-                  <span class="almac-label almac-label-ji">忌</span>
-                  <span class="almac-text" id="almacJi"></span>
-                </p>
-              </div>
-            </section>
+        <section class="quote" aria-label="今日摘句">
+          <div class="container quote__grid">
+            <blockquote class="quote__text" id="hitokoto">加载中…</blockquote>
+            <p class="quote__source" id="hitokotoSource"></p>
           </div>
+        </section>
 
-          <section class="home-section notes-section" id="notes" aria-labelledby="notesTitle">
-            <header class="home-section-heading">
-              <div>
-                <p class="section-kicker">LEARNING NOTES</p>
-                <h2 id="notesTitle">学习笔记</h2>
-              </div>
-              <div class="home-heading-meta">
+        <section class="notes" id="notes" aria-labelledby="notesTitle">
+          <div class="container">
+            <header class="notes__head">
+              <h2 id="notesTitle">学习笔记</h2>
+              <p class="notes__meta">
                 <strong><span id="noteCountLabel">--</span> 篇</strong>
                 <span>PDF 资料</span>
-              </div>
+              </p>
             </header>
-            <div class="notes-list" id="notesList">
-              <div class="home-empty">正在读取学习笔记</div>
+            <div class="notes__list" id="notesList">
+              <div class="home-empty">正在读取学习笔记…</div>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </main>
 
-      <footer class="site-footer">
-        <span>© 2026 薛冰</span>
-        <span id="homeUpdated">最近一次更新：--</span>
+      <footer class="footer">
+        <div class="container footer__inner">
+          <p class="footer__wordmark">薛冰的个人主页</p>
+          <div class="footer__row">
+            <span>© 2026 薛冰</span>
+            <span id="homeUpdated">最近一次更新：--</span>
+          </div>
+        </div>
       </footer>
     </div>
-
-    <dialog class="course-dialog" id="courseDialog" aria-labelledby="dialogTitle">
-      <div class="dialog-heading">
-        <div>
-          <p class="section-kicker" id="dialogKicker">COURSE DETAIL</p>
-          <h2 id="dialogTitle">课程详情</h2>
-        </div>
-        <button
-          class="icon-button dialog-close"
-          id="closeDialogButton"
-          type="button"
-          title="关闭详情"
-          aria-label="关闭课程详情"
-        >
-          <span aria-hidden="true">&#x00d7;</span>
-        </button>
-      </div>
-      <div id="dialogContent"></div>
-    </dialog>
   </body>
 </html>
