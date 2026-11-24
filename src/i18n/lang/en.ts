@@ -35,7 +35,7 @@ export default {
     allPosts: "All Posts",
   },
   footer: {
-    copyright: "Copyright",
+    copyright: "",
     allRightsReserved: "All rights reserved.",
   },
   pages: {

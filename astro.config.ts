@@ -68,13 +68,143 @@ export default defineConfig({
   },
   fonts: [
     {
+      name: "Pagella",
+      cssVariable: "--font-pagella",
+      provider: fontProviders.local(),
+      fallbacks: ["Noto Serif SC", "Source Han Serif SC", "serif"],
+      options: {
+        variants: [
+          {
+            src: ["./src/assets/fonts/pagella/texgyrepagella-regular.woff2"],
+            weight: 400,
+            style: "normal",
+            display: "swap",
+          },
+          {
+            src: ["./src/assets/fonts/pagella/texgyrepagella-bold.woff2"],
+            weight: 700,
+            style: "normal",
+            display: "swap",
+          },
+          {
+            src: ["./src/assets/fonts/pagella/texgyrepagella-italic.woff2"],
+            weight: 400,
+            style: "italic",
+            display: "swap",
+          },
+          {
+            src: ["./src/assets/fonts/pagella/texgyrepagella-bolditalic.woff2"],
+            weight: 700,
+            style: "italic",
+            display: "swap",
+          },
+        ],
+      },
+    },
+    {
+      name: "EB Garamond",
+      cssVariable: "--font-garamond",
+      provider: fontProviders.local(),
+      fallbacks: ["Noto Serif SC", "Source Han Serif SC", "serif"],
+      options: {
+        variants: [
+          {
+            src: ["./src/assets/fonts/eb-garamond/ebgaramond-regular.woff2"],
+            weight: 400,
+            style: "normal",
+            display: "swap",
+          },
+          {
+            src: ["./src/assets/fonts/eb-garamond/ebgaramond-bold.woff2"],
+            weight: 700,
+            style: "normal",
+            display: "swap",
+          },
+          {
+            src: ["./src/assets/fonts/eb-garamond/ebgaramond-italic.woff2"],
+            weight: 400,
+            style: "italic",
+            display: "swap",
+          },
+          {
+            src: ["./src/assets/fonts/eb-garamond/ebgaramond-bolditalic.woff2"],
+            weight: 700,
+            style: "italic",
+            display: "swap",
+          },
+        ],
+      },
+    },
+    {
+      name: "JetBrains Mono",
+      cssVariable: "--font-jetbrains-mono",
+      provider: fontProviders.local(),
+      fallbacks: [
+        "ui-monospace",
+        "SFMono-Regular",
+        "Menlo",
+        "Consolas",
+        "monospace",
+      ],
+      options: {
+        variants: [
+          {
+            src: [
+              "./src/assets/fonts/jetbrains-mono/JetBrainsMono-Regular.woff2",
+            ],
+            weight: 400,
+            style: "normal",
+            display: "swap",
+          },
+          {
+            src: ["./src/assets/fonts/jetbrains-mono/JetBrainsMono-Bold.woff2"],
+            weight: 700,
+            style: "normal",
+            display: "swap",
+          },
+          {
+            src: [
+              "./src/assets/fonts/jetbrains-mono/JetBrainsMono-Italic.woff2",
+            ],
+            weight: 400,
+            style: "italic",
+            display: "swap",
+          },
+          {
+            src: [
+              "./src/assets/fonts/jetbrains-mono/JetBrainsMono-BoldItalic.woff2",
+            ],
+            weight: 700,
+            style: "italic",
+            display: "swap",
+          },
+        ],
+      },
+    },
+    {
+      //Only for Satori to generate OG images, not output to the page via <Font>
       name: "Google Sans Code",
       cssVariable: "--font-google-sans-code",
-      provider: fontProviders.google(),
+      provider: fontProviders.local(),
       fallbacks: ["monospace"],
-      weights: [300, 400, 500, 600, 700],
-      styles: ["normal", "italic"],
-      formats: ["woff", "ttf"],
+      options: {
+        variants: [
+          {
+            src: [
+              "./src/assets/fonts/google-sans-code/GoogleSansCode-Regular.ttf",
+            ],
+            weight: 400,
+            style: "normal",
+          },
+          {
+            src: [
+              "./src/assets/fonts/google-sans-code/GoogleSansCode-Bold.ttf",
+            ],
+            weight: 700,
+            style: "normal",
+          },
+        ],
+      },
     },
   ],
   env: {

@@ -11,6 +11,12 @@
     scrollbar-width: auto;
     scrollbar-color: var(--color-muted) transparent;
   }
+  code,
+  pre,
+  kbd,
+  samp {
+    font-family: var(--font-jetbrains-mono);
+  }
   a,
   button,
   #main-content {
