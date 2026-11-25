@@ -7,4 +7,12 @@ type Props = {
   title: string;
   description: string;
 };
+
+import "katex/dist/katex.min.css"; 
 ---
+
+<style is:global>
+  .app-prose .katex-display {
+    color: var(--foreground);
+  }
+</style>

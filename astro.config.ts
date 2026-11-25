@@ -21,6 +21,8 @@ import {
   rehypeInlineToc,
 } from "./src/utils/rehypeInlineToc";
 import config from "./astro-paper.config";
+import remarkMath from "remark-math"; 
+import rehypeKatex from "rehype-katex"; 
 
 export default defineConfig({
   site: config.site.url,
@@ -44,11 +46,13 @@ export default defineConfig({
     // stay in package.json so a customised config importing them still builds,
     // and are removed in v8.
     processor: unified({
+      remarkPlugins: [remarkMath],
       rehypePlugins: [
         rehypeHeadingIds,
         rehypeInlineToc,
         rehypeCallouts,
         rehypeTableWrapper,
+        rehypeKatex,
       ],
     }),
     shikiConfig: {

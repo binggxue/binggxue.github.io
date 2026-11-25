@@ -2,22 +2,30 @@
 author: Bing Xue
 pubDatetime: 2026-11-24T11:32:11.000Z
 modDatetime: 
-title: My First Blog
+title: My First Blog Post
 featured: false
 draft: false
 tags:
   - blog
-description: This is my first blog.
+description: This is my first blog post.
 ---
 
-This is my first blog. I want to share my thinking and practice English by writing blogs.
+This is my first blog. I want to share my thoughts and practice English by writing blog posts.
 
 ## A Beautiful Page
 
-The template is AstroPaper. The default font is Google Sans Code, which is a free font. However, the environment of network doesn't allow me to access the official URL. Therefore, I download the `.ttf` file to deploy it in my project.
+The template is AstroPaper. The default font is Google Sans Code, which is a free font. However, my network environment doesn't allow me to access the official URL. Therefore, I downloaded the `.ttf` file and bundled it into my project.
 
-The font of the interface is a open source version of Palatino. I also chose EB Garamond as a preparation.
+The interface font is an open-source version of Palatino. I also chose EB Garamond as a backup.
 
 ## The Convinience of Writing
 
-Before I use Astro to write an essay, it was tudious to change the `.html` file and the `.css` file to pursue a easy-to-read page. It is time wasting when I took more time to fix the style than content producting. By the use of Astro, I can focus on the writing of contents.
+Before I started using Astro to write a post, it was tedious to edit the `.html` file and the `.css` file to achieve an easy-to-read page. It was a waste of time, since I spent more time fixing the style than producting content. With Astro, I can focus on writing the content.
+
+## Mathematically Friendly
+
+I set up a $\LaTeX$ environment, so it is easy for me to write mathmatical formulas like $E=mc^2$ or
+
+$$
+\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_{p}\frac{1}{1-p^{-s}}. 
+$$
